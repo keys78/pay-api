@@ -48,44 +48,70 @@
             <img class="pt-40 w-full"  src="./assets/about/desktop/image-team-members.jpg" alt="team members">
         </div>
     
+        <!--stats area-->
+        <div class="w-9/12 mx-auto pt-20 flex justify-between items-center">
 
-        <div class="">
-
-            <div class="">
+            <div class="w-3/12">
                 <div class="mb-6 mt-3 border-b-2 border-gray-400"></div>
                     <p class="showcase-text public-sans text-base">Team Members</p>
-                    <h1 class="text-8xl showcase-text public-sans font-semibold mx-auto">300+</h1>
+                    <h1 class="text-6xl dark-pink showcase-text public-sans font-semibold mx-auto">300+</h1>
                 <div class="mb-6 mt-3 border-b-2 border-gray-400"></div>
             </div>
 
+            <div class="w-3/12">
+                <div class="mb-6 mt-3 border-b-2 border-gray-400"></div>
+                    <p class="showcase-text public-sans text-base">Offices in US</p>
+                    <h1 class="text-6xl dark-pink showcase-text public-sans font-semibold mx-auto">3</h1>
+                <div class="mb-6 mt-3 border-b-2 border-gray-400"></div>
+            </div>
+
+            <div class="w-3/12">
+                <div class="mb-6 mt-3 border-b-2 border-gray-400"></div>
+                    <p class="showcase-text public-sans text-base">Transactions analyzed</p>
+                    <h1 class="text-6xl dark-pink showcase-text public-sans font-semibold mx-auto">10M+</h1>
+                <div class="mb-6 mt-3 border-b-2 border-gray-400"></div>
+            </div>
 
         </div>
 
 
+        <div class="w-7/12 mx-auto pt-20">
+
+            <div class="flex mb-12">
+                <div class="w-11/12 font-semibold showcase-text public-sans text-3xl">
+                    <h3>The Culture</h3>
+                </div>
+                <div class="showcase-text public-sans">
+                    <p>We strongly believe there's always an opportunity to learn from each other outside of
+                       day-to-day work, whether it's company-wide offsites, internal hackathons, or co-worker meetups.
+                       We always value cross-team collaboration and diversity of thought, no matter the job title.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div class="w-6/12 font-semibold showcase-text public-sans text-3xl">
+                    <h3>The People</h3>
+                </div>
+                <div class="showcase-text public-sans">
+                    <p>We're all passionate about building a more efficient and inclusive financial infrastructure
+                       together. At PayAPI, we have diverse backgrounds and skills.
+                    </p>
+                </div>
+            </div>
+
+        
+        </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- <div class="flex justify-between items-center w-9/12 py-12 mx-auto">
+        <div class="flex justify-between items-center w-9/12 py-28 mx-auto">
             <h1 class="text-3xl font-medium showcase-text">Ready to start?</h1>
             <div class="w-6/12">
                 <Mailform/>
             </div>
         </div>
 
-        <Footer/> -->
+        <Footer/>
 
    </div>
 </template>
@@ -93,17 +119,15 @@
 
 <script>
 import Header from './components/Header.vue'
-// import Button from './components/Button.vue'
-// import Mailform from './components/Mailform.vue'
-// import Footer from './components/Footer.vue'
+import Mailform from './components/Mailform.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'About',
   components: {
     Header,
-    // Button,
-    // Mailform,
-    // Footer
+    Mailform,
+    Footer
   }
 }
 </script>

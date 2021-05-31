@@ -2,7 +2,8 @@
 <div>
   <!-- <Home/> -->
   <!-- <Pricing/> -->
-  <About/>
+  <!-- <About/> -->
+  <Contact/>
 
 </div>
 </template>
@@ -10,14 +11,16 @@
 <script>
 // import Home from './Home.vue'
 // import Pricing from './Pricing.vue'
-import About from './About.vue'
+// import About from './About.vue'
+import Contact from './Contact.vue'
 
 export default {
   name: 'App',
   components: {
     // Home,
     // Pricing,
-    About
+    // About,
+    Contact
   }
 }
 </script>
