@@ -26,4 +26,24 @@ export default {
     --light-san-juan-blue: #6c8294;
 }
 
+.body-bg{
+  background-color: #EDF3F8;
+}
+
+.pts-font{
+  font-family: 'PT Serif', serif;
+}
+
+.public-sans{
+  font-family: 'Public Sans', sans-serif
+}
+
+.generic-bg{
+    background: #1b262f;
+}
+.flexer{
+  display: flex;
+  justify-items: space-between;
+  justify-items: center;
+}
 </style>
