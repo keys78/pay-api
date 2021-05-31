@@ -160,13 +160,7 @@ export default {
 </script>
 
 <style>
-.showcase-text{
-    color:#36536b;
-}
-.button-color{
-    color:#fbfcfe;
-    background:#ba4270;
-}
+
 .z-indexer{
     z-index:0;
     }

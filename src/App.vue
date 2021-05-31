@@ -1,16 +1,21 @@
 <template>
-  <Home/>
+<div>
+  <!-- <Home/> -->
 
+  <Pricing/>
 
+</div>
 </template>
 
 <script>
-import Home from './Home.vue'
+// import Home from './Home.vue'
+import Pricing from './Pricing.vue'
 
 export default {
   name: 'App',
   components: {
-    Home
+    // Home,
+    Pricing
   }
 }
 </script>
@@ -24,6 +29,12 @@ export default {
     --mirage-blue: #1b262f;
     --charm-pink: #da6d97;
     --light-san-juan-blue: #6c8294;
+}
+.showcase-text{
+    color:#36536b;
+}
+.dark-pink{
+   color:#ba4270;
 }
 
 .body-bg{
@@ -46,4 +57,5 @@ export default {
   justify-items: space-between;
   justify-items: center;
 }
+
 </style>
