@@ -14,18 +14,20 @@
         <div class="w-9/12 mx-auto flex mt-20 justify-between items-center">
 
             <form class="w-6/12 mt-6">
-                <input type="text" placeholder="Name" class="form-input">
-                <input type="email" placeholder="Email" class="form-input">
+                <input v-model="Namus" type="text" placeholder="Name" class="form-input" @blur="handleBlur">
+                <p class="text-red-500 text-base font-semibold" v-if="errorName">{{ errorName }}</p>
+                <input v-model="Mailus" type="email" placeholder="Email" class="form-input" @blur="handleMailBlur">
+                <p class="text-red-500 text-base font-semibold" v-if="errorMail">{{ errorMail }}</p>
                 <input type="text" placeholder="Company Name" class="form-input">
                 <input type="text" placeholder="Title" class="form-input">
-                <textarea name="text" id="" cols="15" placeholder="Message" class="text-xl mt-4 bg-transparent border-b px-2 border-gray-400 w-full focus:outline-none" rows="5"></textarea>
-
+                <textarea v-model="Textus" name="text" id="" cols="15"  placeholder="Message" class="text-xl mt-4 bg-transparent border-b-2 px-2 border-gray-400 w-full focus:outline-none" rows="3"  @blur="handleTextBlur"></textarea>
+                <p class="text-red-500 text-base font-semibold" v-if="errorTextField">{{ errorTextField }}</p>
                 <label for="Checkbox" class="text-base showcase-text public-sans flex items-center gap-4 pt-4">
                      <input type="checkbox" class="checky">
                     Stay up-to-date with company announcements and updates to our API
                 </label>
 
-                <Button type="submit" text="Submit" class="my-4"/>
+                <Button :disabled="isDisabled" type="submit" text="Submit" class="my-4" :class="{'disable-submit': isDisabled}"/>
             </form>
 
             <div class="w-5/12">
@@ -43,17 +45,14 @@
 
         </div>
 
-        
-
-
-        <!-- <div class="flex justify-between items-center w-9/12 py-28 mx-auto">
+        <div class="flex justify-between items-center w-9/12 py-28 mx-auto">
             <h1 class="text-3xl font-medium showcase-text">Ready to start?</h1>
             <div class="w-6/12">
                 <Mailform/>
             </div>
         </div>
 
-        <Footer/> -->
+        <Footer/>
 
    </div>
 </template>
@@ -62,16 +61,49 @@
 <script>
 import Header from './components/Header.vue'
 import Button from './components/Button.vue'
-// import Mailform from './components/Mailform.vue'
-// import Footer from './components/Footer.vue'
+import Mailform from './components/Mailform.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'Contact',
   components: {
     Header,
     Button,
-    // Mailform,
-    // Footer
+    Mailform,
+    Footer
+  },
+
+   data() {
+    return {
+       errorName: '',
+       Namus: '',
+       errorNameMessage: 'This Field can\'t be empty',
+       Mailus: '',
+       errorMail: '',
+       errorMailMessage: 'Please use a valid email address',
+       Textus:'',
+       errorTextField: '',
+       errorTextFieldMessage: 'This Field can\t be empty',
+    }
+  },
+
+  methods: {
+    handleBlur() { 
+     this.errorName = this.Namus.length > 1 ? this.isDisabled === false : this.errorNameMessage
+     },
+    handleMailBlur() { 
+     this.errorMail = this.Mailus.length > 5 ? '' : this.errorMailMessage
+     },
+    handleTextBlur() { 
+     this.errorTextField = this.Textus.length > 2 ? '' : this.errorTextFieldMessage
+     },
+    
+  },
+
+  computed:{
+      isDisabled: function(){
+          return this.Namus.length > 1 ? false : true, this.Mailus.length > 1 ? false : true, this.Textus.length > 1 ? false : true
+      }
   }
 }
 </script>
@@ -94,4 +126,12 @@ export default {
      padding: 4px;
     background: transparent;
 } */
+
+.disable-submit{
+    cursor:not-allowed;
+    opacity: 0.5;
+}
+.disable-submit:hover{
+    background: rgb(87, 0, 0);
+}
 </style>
