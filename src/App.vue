@@ -1,21 +1,23 @@
 <template>
 <div>
   <!-- <Home/> -->
-
-  <Pricing/>
+  <!-- <Pricing/> -->
+  <About/>
 
 </div>
 </template>
 
 <script>
 // import Home from './Home.vue'
-import Pricing from './Pricing.vue'
+// import Pricing from './Pricing.vue'
+import About from './About.vue'
 
 export default {
   name: 'App',
   components: {
     // Home,
-    Pricing
+    // Pricing,
+    About
   }
 }
 </script>
@@ -46,8 +48,11 @@ export default {
 }
 
 .public-sans{
-  font-family: 'Public Sans', sans-serif
+  font-family: 'Source Serif Pro', serif;
 }
+/* .public-sans{
+  font-family: 'Public Sans', sans-serif
+} */
 
 .generic-bg{
     background: #1b262f;
