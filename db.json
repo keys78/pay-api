@@ -1,0 +1,25 @@
+{
+    "users":[
+        {
+            "id":"1",
+            "firstName":"Emma",
+            "lastName":"Tochi",
+            "email":"text2@gmail.com",
+            "phone":"081 777 444 2342"
+        },
+        {
+            "id":"2",
+            "firstName":"Emmfa",
+            "lastName":"Tohi",
+            "email":"text2@gmil.com",
+            "phone":"0877 444 2342"
+        },
+        {
+            "id":"3",
+            "firstName":"Ea",
+            "lastName":"Toc",
+            "email":"text2@gl.com",
+            "phone":"081 777 4 2342"
+        }
+    ]
+}

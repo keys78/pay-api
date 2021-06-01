@@ -11,17 +11,19 @@
             <img class="relative -top-48 -right-40" src="./assets/shared/desktop/bg-pattern-circle.svg">
         </div>
 
-        <div class="w-5/12 mx-auto mt-16">
+        <div class="w-5/12 mx-auto mt-12">
                 <h1 class="text-center text-3xl showcase-text public-sans pb-5">Sign In Here</h1>
         <form>
             <input v-model="Firstus" type="text" placeholder="First Name" class="form-input" @blur="handleBlur">
-                <p class="text-red-500 text-base font-semibold" v-if="firstNameError">{{ firstNameError }}</p>
+                <p class="text-red-500 text-sm font-semibold" v-if="firstNameError">{{ firstNameError }}</p>
                 <input v-model="Lastus" type="text" placeholder="Last Name" class="form-input" @blur="handleLastBlur">
-                <p class="text-red-500 text-base font-semibold" v-if="lastNameError">{{ lastNameError }}</p>
+                <p class="text-red-500 text-sm font-semibold" v-if="lastNameError">{{ lastNameError }}</p>
                <input v-model="Mailus" type="email" placeholder="Email" class="form-input" @blur="handleMailBlur">
-                 <p class="text-red-500 text-base font-semibold" v-if="mailError">{{ mailError }}</p>
+                 <p class="text-red-500 text-sm font-semibold" v-if="mailError">{{ mailError }}</p>
                  <input v-model="Phonus" type="text" placeholder="Phone" class="form-input"  @blur="handlePhoneBlur">
-                <p class="text-red-500 text-base font-semibold" v-if="phoneError">{{ phoneError }}</p>
+                <p class="text-red-500 text-sm font-semibold" v-if="phoneError">{{ phoneError }}</p>
+                 <input v-model="Passus" type="password" placeholder="Password" class="form-input"  @blur="handlePassBlur">
+                <p class="text-red-500 text-sm font-semibold" v-if="passError">{{ passError }}</p>
                 <label for="Checkbox" class="text-base showcase-text public-sans flex items-center gap-4 pt-4">
                      <input type="checkbox" v-model="terms" class="checky">
                     I agree to terms and policies
@@ -31,7 +33,7 @@
 
         </form>
         </div>
-        <Footer class="mt-52"/>
+        <Footer class="mt-40"/>
 
 
     </div>
@@ -67,30 +69,45 @@ export default {
        phoneError: '',
        Phonus: '',
        phoneErrorMessage: 'Fill out this field correctly',
+
+       passError: '',
+       Passus: '',
+       passErrorMessage: 'Password must be more than 8 characters',
     }
   },
 
   methods: {
-    handleBlur() { 
+    handleBlur(e) { 
      this.firstNameError = this.Firstus.length > 1 ? '' : this.firstNameErrorMessage
+     this.Firstus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
+    //  e.target.placeholder.style.setAttribute("red")
      },
 
-    handleLastBlur() { 
+    handleLastBlur(e) { 
      this.lastNameError = this.Lastus.length > 1 ? '' : this.lastNameErrorMessage
+     this.Lastus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
      },
 
-     handleMailBlur() { 
+     handleMailBlur(e) { 
      this.mailError = this.Mailus.length > 5 ? '' : this.mailErrorMessage
+     this.Mailus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
      },
 
-     handlePhoneBlur() { 
+     handlePhoneBlur(e) { 
      this.phoneError = this.Phonus.length > 5 ? '' : this.phoneErrorMessage
+     this.Phonus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
+     },
+    
+     handlePassBlur(e) { 
+     this.passError = this.Passus.length > 8 ? '' : this.passErrorMessage
+     this.Passus.length > 8 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
      },
     
   },
    computed:{
       isDisabled: function(){
-          return this.Firstus.length > 1 ? false : true, this.Lastus.length > 1 ? false : true, this.Mailus.length > 5 ? false : true, this.Phonus.length > 5 ? false : true, !this.terms
+          return this.terms && this.Passus.length > 8 && this.Firstus.length && this.Lastus.length && this.Mailus.length && this.Phonus.length > 2 ? false : true
+        
       }
   }
 
@@ -112,5 +129,8 @@ export default {
 }
 .form-input:focus{
     outline: none;
+}
+::placeholder{
+    color:#929596;
 }
 </style>
