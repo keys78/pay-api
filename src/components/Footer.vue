@@ -12,9 +12,9 @@
                 <img src="../assets/shared/desktop/logo-footer.svg">
             </div>
 
-            <h1>Pricing</h1>
-            <h1>About</h1>
-            <h1>Contact</h1>
+                <router-link to="/pricing"><h1>Pricing</h1></router-link>
+                <router-link to="/about"><h1>About</h1></router-link>
+                <router-link to="/contact"><h1>Contact</h1></router-link>
         </div>
 
         <div class="w-2/12 flex justify-between items-center">

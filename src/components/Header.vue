@@ -2,21 +2,22 @@
   
     <header class="body-bg">
 
-        <section class=" w-9/12 mx-auto pt-7 flex justify-between items-center">
+        <section class=" w-9/12 mx-auto pt-7 flex justify-between items-center" style="z-index: 2;">
             <div class="w-5/12 flex justify-between items-center">
 
                 <div>
-                    <img src="../assets/shared/desktop/logo.svg" alt="payapi icon">
+                    <router-link to="/"><img src="../assets/shared/desktop/logo.svg" alt="payapi icon"></router-link>
                 </div>
 
-                <h1>Pricing</h1>
-                <h1>About</h1>
-                <h1>Contact</h1>
+                <router-link to="/pricing"><h1>Pricing</h1></router-link>
+                <router-link to="/about"><h1>About</h1></router-link>
+                <router-link to="/contact"><h1>Contact</h1></router-link>
+           
             </div>
 
-            <div class="cursor-pointer py-3 px-6 button-color hover:opacity-70 rounded-3xl z-indexer">
+            <router-link  style="z-index: 9999;" to="/signup"><div class="cursor-pointer py-3 px-6 button-color hover:opacity-70 rounded-3xl z-indexer">
                 Schedule a demo
-            </div>
+            </div></router-link>
 
         </section>
 

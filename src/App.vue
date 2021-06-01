@@ -3,25 +3,17 @@
   <!-- <Home/> -->
   <!-- <Pricing/> -->
   <!-- <About/> -->
-  <Contact/>
+  <!-- <Contact/> -->
+  <router-view/>
 
 </div>
 </template>
 
 <script>
-// import Home from './Home.vue'
-// import Pricing from './Pricing.vue'
-// import About from './About.vue'
-import Contact from './Contact.vue'
 
 export default {
   name: 'App',
-  components: {
-    // Home,
-    // Pricing,
-    // About,
-    Contact
-  }
+ 
 }
 </script>
 

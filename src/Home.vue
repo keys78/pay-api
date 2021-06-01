@@ -1,6 +1,6 @@
 <template>
 
-  <div class="body-bg">
+  <div class="body-bg" style="z-index:4;">
     <Header/>
     <div class="absolute top-0 right-0 overflow-hidden z-indexer">
         <img class="relative -top-48 -right-40" src="./assets/shared/desktop/bg-pattern-circle.svg">
@@ -12,7 +12,7 @@
     <div class="w-4/12 text-6xl font-medium pts ml-48 mt-36 showcase-text">
         <h1>Start building with our APIs for absolutely free.</h1>
         <Mailform class="mt-10"/>
-        <p class="mt-3 text-gray-500 pts text-base ml-6">Have any questions? Contact us</p>
+        <p class="mt-3 text-gray-500 pts text-base ml-6 ">Have any questions? <router-link class="underline" to="/contact">Contact us</router-link></p>
     </div>
 
     <!--selected companies-->
@@ -162,7 +162,7 @@ export default {
 <style>
 
 .z-indexer{
-    z-index:0;
+    z-index:1
     }
 .buttono{
     transform: scale(0.98);
