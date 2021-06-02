@@ -14,24 +14,29 @@
         <div class="lg:w-5/12 md:w-7/12 sm:w-10/12 w-11/12 mx-auto mt-12">
                 <h1 class="text-center text-3xl showcase-text public-sans pb-5">Sign In Here</h1>
                  
-                 <!-- @submit="updateDB" -->
-        <form >
-            <input v-model="userDetails.Firstus" type="text" placeholder="First Name" class="form-input" @blur="handleBlur">
-                <p class="text-red-500 text-sm font-semibold" v-if="firstNameError">{{ firstNameError }}</p>
-                <input v-model="userDetails.Lastus" type="text" placeholder="Last Name" class="form-input" @blur="handleLastBlur">
-                <p class="text-red-500 text-sm font-semibold" v-if="lastNameError">{{ lastNameError }}</p>
-               <input v-model="userDetails.Mailus" type="email" placeholder="Email" class="form-input" @blur="handleMailBlur">
-                 <p class="text-red-500 text-sm font-semibold" v-if="mailError">{{ mailError }}</p>
-                 <input v-model="userDetails.Phonus" type="text" placeholder="Phone" class="form-input"  @blur="handlePhoneBlur">
-                <p class="text-red-500 text-sm font-semibold" v-if="phoneError">{{ phoneError }}</p>
-                 <input v-model="userDetails.Passus" type="password" placeholder="Password" class="form-input"  @blur="handlePassBlur">
-                <p class="text-red-500 text-sm font-semibold" v-if="passError">{{ passError }}</p>
-                <label for="Checkbox" class="text-base showcase-text public-sans flex items-center gap-4 pt-4">
-                     <input type="checkbox" v-model="terms" class="checky">
-                    I agree to terms and policies
-                </label>
+                 
+        <form action="" @submit.prevent="updatingDb">
+            <input v-model="userDetails.firstName" type="text" placeholder="First Name" class="form-input" @blur="handleBlur">
+            <p class="text-red-500 text-sm font-semibold" v-if="firstNameError">{{ firstNameError }}</p>
 
-                <Button :disabled="isDisabled" type="submit" text="Submit" class="my-4" :class="{'disable-submit': isDisabled}"/>
+            <input v-model="userDetails.lastName" type="text" placeholder="Last Name" class="form-input" @blur="handleLastBlur">
+            <p class="text-red-500 text-sm font-semibold" v-if="lastNameError">{{ lastNameError }}</p>
+
+            <input v-model="userDetails.email" type="email" placeholder="Email" class="form-input" @blur="handleMailBlur">
+            <p class="text-red-500 text-sm font-semibold" v-if="mailError">{{ mailError }}</p>
+
+            <input v-model="userDetails.phone" type="text" placeholder="Phone" class="form-input"  @blur="handlePhoneBlur">
+            <p class="text-red-500 text-sm font-semibold" v-if="phoneError">{{ phoneError }}</p>
+
+            <input v-model="userDetails.password" type="password" placeholder="Password" class="form-input"  @blur="handlePassBlur">
+            <p class="text-red-500 text-sm font-semibold" v-if="passError">{{ passError }}</p>
+
+            <label for="Checkbox" class="text-base showcase-text public-sans flex items-center gap-4 pt-4">
+                <input type="checkbox" v-model="terms" class="checky">
+                I agree to terms and policies
+            </label>
+
+            <Button :disabled="isDisabled" type="submit" text="Submit" class="my-4" :class="{'disable-submit': isDisabled}"/>
 
         </form>
         </div>
@@ -44,6 +49,9 @@
 <script>
 import Button from './components/Button.vue'
 import Footer from './components/Footer.vue'
+// import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios.axios)
 
 export default {
     name:"Signup",
@@ -56,11 +64,11 @@ export default {
     return {
         terms: false,
         userDetails: {
-            Firstus: "",
-            Lastus: "",
-            Mailus:"",
-            Phonus:"",
-            Passus: ""
+            firstName: "",
+            lastName: "",
+            email:"",
+            phone:"",
+            password: ""
 
         },
 
@@ -83,35 +91,38 @@ export default {
 
   methods: {
     handleBlur(e) { 
-     this.firstNameError = this.userDetails.Firstus.length > 1 ? '' : this.firstNameErrorMessage
-     this.userDetails.Firstus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
+     this.firstNameError = this.userDetails.firstName.length > 1 ? '' : this.firstNameErrorMessage
+     this.userDetails.firstName.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
     //  e.target.placeholder.style.setAttribute("red")
      },
 
     handleLastBlur(e) { 
-     this.lastNameError = this.userDetails.Lastus.length > 1 ? '' : this.lastNameErrorMessage
-     this.userDetails.Lastus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
+     this.lastNameError = this.userDetails.lastName.length > 1 ? '' : this.lastNameErrorMessage
+     this.userDetails.lastName.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
      },
 
      handleMailBlur(e) { 
-     this.mailError = this.userDetails.Mailus.length > 5 ? '' : this.mailErrorMessage
-     this.userDetails.Mailus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
+     this.mailError = this.userDetails.email.length > 5 ? '' : this.mailErrorMessage
+     this.userDetails.email.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
      },
 
      handlePhoneBlur(e) { 
-     this.phoneError = this.userDetails.Phonus.length > 5 ? '' : this.phoneErrorMessage
-     this.userDetails.Phonus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
+     this.phoneError = this.userDetails.phone.length > 5 ? '' : this.phoneErrorMessage
+     this.userDetails.phone.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
      },
     
      handlePassBlur(e) { 
-     this.passError = this.userDetails.Passus.length > 8 ? '' : this.passErrorMessage
-     this.userDetails.Passus.length > 8 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
+     this.passError = this.userDetails.password.length > 8 ? '' : this.passErrorMessage
+     this.userDetails.password.length > 8 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
      },
-    
-  },
-    updateDB() {
-            fetch('http://localhost:3000/users', {
-                method: 'post',
+
+
+      updatingDb() {
+          mounted()
+           {
+
+                Vue.axios.fetch('http://localhost:3000/body', {
+                method: 'POST',
                 headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
@@ -126,15 +137,24 @@ export default {
 
         })
 
-        
-        },
+       .catch(err => {
+           console.log(err)
+        })
 
+          }
+
+        
+    },
+
+    
+  },
+   
 
 
 
    computed:{
       isDisabled: function(){
-          return this.terms && this.userDetails.Passus.length > 8 && this.userDetails.Firstus.length && this.userDetails.Lastus.length && this.userDetails.Mailus.length && this.userDetails.Phonus.length > 2 ? false : true
+          return this.terms && this.userDetails.password.length > 8 && this.userDetails.firstName.length && this.userDetails.lastName.length && this.userDetails.email.length && this.userDetails.phone.length > 2 ? false : true
         
       }
   }
