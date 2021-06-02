@@ -96,7 +96,7 @@ export default {
     handleBlur(e) { 
      this.firstNameError = this.userDetails.firstName.length > 1 ? '' : this.firstNameErrorMessage
      this.userDetails.firstName.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
-    //  e.target.placeholder.style.setAttribute("red")
+    //  e.target.placeholder.style.setAttribute("rfed")
      },
 
     handleLastBlur(e) { 
