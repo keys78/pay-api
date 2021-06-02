@@ -66,4 +66,5 @@ export default {
   justify-items: center;
 }
 
+
 </style>

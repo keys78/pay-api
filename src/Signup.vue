@@ -14,6 +14,7 @@
         <div class="lg:w-5/12 md:w-7/12 sm:w-10/12 w-11/12 mx-auto mt-12">
                 <h1 class="text-center text-3xl showcase-text public-sans pb-5">Sign In Here</h1>
                  
+                 <h1 v-if="alerts" class="animate__animated animate__faster animate__slideInDown text-xl text-center  text-green-500"> {{ alerts }} </h1>
                  
         <form action="" @submit.prevent="updatingDb">
             <input v-model="userDetails.firstName" type="text" placeholder="First Name" class="form-input" @blur="handleBlur">
@@ -50,8 +51,9 @@
 import Button from './components/Button.vue'
 import Footer from './components/Footer.vue'
 // import axios from 'axios'
-import VueAxios from 'vue-axios'
-Vue.use(VueAxios.axios)
+// axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+// axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+
 
 export default {
     name:"Signup",
@@ -72,6 +74,7 @@ export default {
 
         },
 
+        alerts:'',
        firstNameError: '',
        firstNameErrorMessage: 'This Field can\'t be empty',
 
@@ -118,10 +121,14 @@ export default {
 
 
       updatingDb() {
-          mounted()
-           {
 
-                Vue.axios.fetch('http://localhost:3000/body', {
+        // axios.post('http://localhost:3000/body', {
+        //     body: JSON.stringify(this.userDetails)
+        // })
+        // .then(res => {return res.json();})
+        // .catch(e => {this.errors.push(e)})
+
+         fetch('http://localhost:3000/body', {
                 method: 'POST',
                 headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -130,27 +137,25 @@ export default {
                 body: JSON.stringify(this.userDetails)
             })
              .then(res => {
-            return res.json();
+                return res.json();
+            
         })
         .then(data => {
           console.log(data)
+          this.alerts = "Signup successful"
+          setInterval (() => {
+          this.alerts = ""
+          },3000)
 
         })
 
        .catch(err => {
-           console.log(err)
+           this.alerts = "error, try again"
         })
 
-          }
-
-        
-    },
-
-    
   },
-   
-
-
+  
+  },
 
    computed:{
       isDisabled: function(){
