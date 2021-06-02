@@ -11,18 +11,20 @@
             <img class="relative -top-48 -right-40" src="./assets/shared/desktop/bg-pattern-circle.svg">
         </div>
 
-        <div class="w-5/12 mx-auto mt-12">
+        <div class="lg:w-5/12 md:w-7/12 sm:w-10/12 w-11/12 mx-auto mt-12">
                 <h1 class="text-center text-3xl showcase-text public-sans pb-5">Sign In Here</h1>
-        <form>
-            <input v-model="Firstus" type="text" placeholder="First Name" class="form-input" @blur="handleBlur">
+                 
+                 <!-- @submit="updateDB" -->
+        <form >
+            <input v-model="userDetails.Firstus" type="text" placeholder="First Name" class="form-input" @blur="handleBlur">
                 <p class="text-red-500 text-sm font-semibold" v-if="firstNameError">{{ firstNameError }}</p>
-                <input v-model="Lastus" type="text" placeholder="Last Name" class="form-input" @blur="handleLastBlur">
+                <input v-model="userDetails.Lastus" type="text" placeholder="Last Name" class="form-input" @blur="handleLastBlur">
                 <p class="text-red-500 text-sm font-semibold" v-if="lastNameError">{{ lastNameError }}</p>
-               <input v-model="Mailus" type="email" placeholder="Email" class="form-input" @blur="handleMailBlur">
+               <input v-model="userDetails.Mailus" type="email" placeholder="Email" class="form-input" @blur="handleMailBlur">
                  <p class="text-red-500 text-sm font-semibold" v-if="mailError">{{ mailError }}</p>
-                 <input v-model="Phonus" type="text" placeholder="Phone" class="form-input"  @blur="handlePhoneBlur">
+                 <input v-model="userDetails.Phonus" type="text" placeholder="Phone" class="form-input"  @blur="handlePhoneBlur">
                 <p class="text-red-500 text-sm font-semibold" v-if="phoneError">{{ phoneError }}</p>
-                 <input v-model="Passus" type="password" placeholder="Password" class="form-input"  @blur="handlePassBlur">
+                 <input v-model="userDetails.Passus" type="password" placeholder="Password" class="form-input"  @blur="handlePassBlur">
                 <p class="text-red-500 text-sm font-semibold" v-if="passError">{{ passError }}</p>
                 <label for="Checkbox" class="text-base showcase-text public-sans flex items-center gap-4 pt-4">
                      <input type="checkbox" v-model="terms" class="checky">
@@ -53,60 +55,86 @@ export default {
      data() {
     return {
         terms: false,
+        userDetails: {
+            Firstus: "",
+            Lastus: "",
+            Mailus:"",
+            Phonus:"",
+            Passus: ""
+
+        },
 
        firstNameError: '',
-       Firstus: '',
        firstNameErrorMessage: 'This Field can\'t be empty',
 
        lastNameError: '',
-       Lastus: '',
        lastNameErrorMessage: 'This Field can\'t be empty',
 
        mailError: '',
-       Mailus: '',
        mailErrorMessage: 'Please input a vaild email address',
 
        phoneError: '',
-       Phonus: '',
        phoneErrorMessage: 'Fill out this field correctly',
 
        passError: '',
-       Passus: '',
        passErrorMessage: 'Password must be more than 8 characters',
     }
   },
 
   methods: {
     handleBlur(e) { 
-     this.firstNameError = this.Firstus.length > 1 ? '' : this.firstNameErrorMessage
-     this.Firstus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
+     this.firstNameError = this.userDetails.Firstus.length > 1 ? '' : this.firstNameErrorMessage
+     this.userDetails.Firstus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
     //  e.target.placeholder.style.setAttribute("red")
      },
 
     handleLastBlur(e) { 
-     this.lastNameError = this.Lastus.length > 1 ? '' : this.lastNameErrorMessage
-     this.Lastus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
+     this.lastNameError = this.userDetails.Lastus.length > 1 ? '' : this.lastNameErrorMessage
+     this.userDetails.Lastus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
      },
 
      handleMailBlur(e) { 
-     this.mailError = this.Mailus.length > 5 ? '' : this.mailErrorMessage
-     this.Mailus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
+     this.mailError = this.userDetails.Mailus.length > 5 ? '' : this.mailErrorMessage
+     this.userDetails.Mailus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
      },
 
      handlePhoneBlur(e) { 
-     this.phoneError = this.Phonus.length > 5 ? '' : this.phoneErrorMessage
-     this.Phonus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
+     this.phoneError = this.userDetails.Phonus.length > 5 ? '' : this.phoneErrorMessage
+     this.userDetails.Phonus.length > 1 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
      },
     
      handlePassBlur(e) { 
-     this.passError = this.Passus.length > 8 ? '' : this.passErrorMessage
-     this.Passus.length > 8 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
+     this.passError = this.userDetails.Passus.length > 8 ? '' : this.passErrorMessage
+     this.userDetails.Passus.length > 8 ? e.target.style.border = '#929596 1px solid' : e.target.style.border = 'red 1px solid'
      },
     
   },
+    updateDB() {
+            fetch('http://localhost:3000/users', {
+                method: 'post',
+                headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(this.userDetails)
+            })
+             .then(res => {
+            return res.json();
+        })
+        .then(data => {
+          console.log(data)
+
+        })
+
+        
+        },
+
+
+
+
    computed:{
       isDisabled: function(){
-          return this.terms && this.Passus.length > 8 && this.Firstus.length && this.Lastus.length && this.Mailus.length && this.Phonus.length > 2 ? false : true
+          return this.terms && this.userDetails.Passus.length > 8 && this.userDetails.Firstus.length && this.userDetails.Lastus.length && this.userDetails.Mailus.length && this.userDetails.Phonus.length > 2 ? false : true
         
       }
   }
