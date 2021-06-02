@@ -5,6 +5,7 @@ import About from '../About.vue'
 import Pricing from '../Pricing.vue'
 import Contact from '../Contact.vue'
 import Signup from '../Signup.vue'
+import Dashboard from '../Dashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -36,6 +37,12 @@ const routes = [
     path: '/signup',
     name: 'Signup',
     component: Signup
+   
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
    
   },
 ]

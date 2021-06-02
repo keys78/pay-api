@@ -136,20 +136,20 @@ export default {
                 },
                 body: JSON.stringify(this.userDetails)
             })
-             .then(res => {
+                .then(res => {
                 return res.json();
             
-        })
-        .then(data => {
-          console.log(data)
-          this.alerts = "Signup successful"
-          setInterval (() => {
-          this.alerts = ""
-          },3000)
+            })
+            .then(data => {
+                console.log(data)
+                this.alerts = "Signup successful"
+                setInterval (() => {
+                this.alerts = ""},3000)
+                
+                this.$router.push({ name: 'Dashboard' });
+                })
 
-        })
-
-       .catch(err => {
+       .catch(() => {
            this.alerts = "error, try again"
         })
 
@@ -185,5 +185,9 @@ export default {
 }
 ::placeholder{
     color:#929596;
+}
+.disable-submit{
+    background: transparent;
+    color:grey;
 }
 </style>
