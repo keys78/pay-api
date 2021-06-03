@@ -2,7 +2,7 @@
     <div class="body-bg">
 
         <div>
-            <div class="w-9/12 mx-auto pt-8">
+            <div class="sm:w-9/12 w-11/12 mx-auto pt-8">
                 <router-link to="/"><img src="./assets/shared/desktop/logo.svg" alt="payapi icon"></router-link>
             </div>
         </div>
