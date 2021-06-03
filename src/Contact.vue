@@ -6,14 +6,14 @@
         </div>
 
         <div class="w-9/12 mx-auto">
-            <h1 class="w-7/12 text-5xl font-semibold tracking-wide showcase-text public-sans mt-16">
+            <h1 class="lg:w-7/12 w-9/12 sm:text-5xl text-4xl lg:text-left md:mx-0 mx-auto text-center font-semibold tracking-wide showcase-text public-sans mt-16">
                  Submit a help request and we’ll get in touch shortly.
             </h1>
         </div>
 
-        <div class="w-9/12 mx-auto flex mt-20 justify-between items-center">
+        <div class="xl:w-9/12 w-11/12 mx-auto lg:flex-row flex-col flex mt-20 justify-between items-center">
 
-            <form class="w-6/12 mt-6">
+            <form class="xl:w-6/12 w-5/12 mt-6">
                 <input v-model="Namus" type="text" placeholder="Name" class="form-input" @blur="handleBlur">
                 <p class="text-red-500 text-base font-semibold" v-if="errorName">{{ errorName }}</p>
                 <input v-model="Mailus" type="email" placeholder="Email" class="form-input" @blur="handleMailBlur">
@@ -30,7 +30,7 @@
                 <Button :disabled="isDisabled" type="submit" text="Submit" class="my-4" :class="{'disable-submit': isDisabled}"/>
             </form>
 
-            <div class="w-5/12">
+            <div class="xl:w-5/12 w-6/12">
                  <h1 class="showcase-text text-2xl public-sans pb-4">Join thousands of innovators already building with us</h1>
                 <div class="grid grid-cols-3 gap-8 items-center">
                     <svg width="131" height="17" xmlns="http://www.w3.org/2000/svg"><path d="M89.447.047v13.628h14.74c-.375 1.405-1.264 2.623-2.902 3.325h-15.16V.047h3.322zm-12.588 0c-.374 1.452-1.825 2.81-3.603 3.325H61.558l.047 3.372h15.16V17H57.347c.796-1.64 2.387-2.904 4.259-3.419H73.49V10.07H58.33V.047zM21.196 0v.047c-.371 1.503-1.623 2.912-3.386 3.381h-5.287l-.279.094V17H8.951V3.522l-.278-.094H3.386C1.67 3.052.37 1.55 0 .047L21.196 0zm108.586 6.744V17h-3.275v-6.837h-11.98V17h-3.275V6.744h18.53zM48.783 13.58c-.327 1.499-1.637 3.091-3.416 3.419H32.733c-1.778-.328-3.088-1.92-3.462-3.419zm0-6.884c-.327 1.499-1.637 3.09-3.416 3.419H32.733c-1.778-.375-3.088-1.92-3.462-3.419zM130.203 0c-.374 1.499-1.637 3.09-3.416 3.419h-12.634c-1.731-.375-3.041-1.92-3.416-3.419zm-81.42 0c-.327 1.499-1.637 3.09-3.416 3.419H32.733c-1.778-.375-3.088-1.92-3.462-3.419z" fill="#36536b" fill-rule="nonzero"/></svg>
