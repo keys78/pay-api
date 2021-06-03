@@ -8,7 +8,7 @@
         </div>
 
         <div class="absolute top-0 right-0 overflow-hidden md:block hidden" >
-            <img class="relative -top-48 -right-40" src="./assets/shared/desktop/bg-pattern-circle.svg">
+            <img class="relative -top-96 -right-40" src="./assets/shared/desktop/bg-pattern-circle.svg">
         </div>
 
         <div class="lg:w-5/12 md:w-7/12 sm:w-10/12 w-11/12 mx-auto mt-12">
@@ -150,7 +150,9 @@ export default {
                 })
 
        .catch(() => {
-           this.alerts = "error, try again"
+            setInterval (() => {
+               this.alerts = "error, try again" 
+               },4000)
         })
 
   },
