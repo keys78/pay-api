@@ -7,7 +7,7 @@
             </div>
         </div>
 
-        <div class="absolute top-0 right-0 overflow-hidden z-indexer">
+        <div class="absolute top-0 right-0 overflow-hidden md:block hidden" >
             <img class="relative -top-48 -right-40" src="./assets/shared/desktop/bg-pattern-circle.svg">
         </div>
 
