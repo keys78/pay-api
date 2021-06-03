@@ -25,7 +25,7 @@
 
         </section>
 
-        <div v-if="showSideBar" class="anim w-full pt-20 p-4 fixed h-screen top-0 sidebarStyle text-center" style="z-index: 99999999999;">
+        <div v-if="showSideBar" class="md:hidden block anim w-full pt-20 p-4 fixed h-screen top-0 sidebarStyle text-center" style="z-index: 99999999999;">
             <div class="absolute top-0 right-0 overflow-hidden" style="z-index:-9;">
                 <img class="relative -right-40" src="../assets/shared/desktop/bg-pattern-circle.svg">
             </div>

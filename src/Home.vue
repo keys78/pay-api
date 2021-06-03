@@ -14,7 +14,7 @@
         </div>
 
           <div class="lg:w-full md:w-6/12 sm:w-9/12 w-11/12 mx-auto" style="z-index:9;">
-            <img class="mx-auto lg:-mr-6 -mr-2" src="./assets/home/desktop/illustration-phone-mockup.svg" alt="phone mockup">
+            <img class="mx-auto lg:-mr-6 -mr-5" src="./assets/home/desktop/illustration-phone-mockup.svg" alt="phone mockup">
         </div>
     </section>
 
