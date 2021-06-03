@@ -66,5 +66,15 @@ export default {
   justify-items: center;
 }
 
+ /* <div class="md:absolute top-20 right-40 w-full">
+        <img class="" src="./assets/home/desktop/illustration-phone-mockup.svg" alt="phone mockup">
+    </div>
 
-</style>
+    <div class="md:w-4/12 w-11/12 md:text-6xl sm:text-5xl text-4xl font-medium  pts md:ml-48 ml-12 md:mt-36 mt-96 showcase-text">
+        <h1 class="pt-60">Start building with our APIs for absolutely free.</h1>
+        <Mailform class="mt-10"/>  
+        <p class="mt-3 text-gray-500 pts text-base ml-6 ">Have any questions? <router-link class="underline" to="/contact">Contact us</router-link></p>
+    </div>
+
+
+</style> */

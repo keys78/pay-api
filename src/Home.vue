@@ -3,28 +3,31 @@
   <div class="body-bg" style="z-index:4;">
     <Header/>
     <div class="absolute top-0 right-0 overflow-hidden z-indexer">
-        <img class="relative -top-48 -right-40" src="./assets/shared/desktop/bg-pattern-circle.svg">
+        <img class="relative md:-top-48 sm:-top-56 w-full -top-52 md:-right-40" src="./assets/shared/desktop/bg-pattern-circle.svg">
     </div>
-    <div class="absolute top-20 right-40">
-        <img src="./assets/home/desktop/illustration-phone-mockup.svg" alt="phone mockup">
-    </div>
+    <section class="flex lg:flex-row flex-col-reverse justify-between items-center xl:w-9/12 w-11/12 mx-auto">
 
-    <div class="w-4/12 text-6xl font-medium pts ml-48 mt-36 showcase-text">
-        <h1>Start building with our APIs for absolutely free.</h1>
-        <Mailform class="mt-10"/>
-        <p class="mt-3 text-gray-500 pts text-base ml-6 ">Have any questions? <router-link class="underline" to="/contact">Contact us</router-link></p>
-    </div>
-
-    <!--selected companies-->
-    <section class="w-full generic-bg py-20 mt-56 relative">
-        <div class="absolute -top-0 left-0 overflow-hidden z-indexer">
-             <img class="relative -top-96 -left-96" src="./assets/shared/desktop/bg-pattern-circle.svg">
+        <div class="lg:w-full w-10/12 lg:text-left text-center mx-auto md:text-5xl text-4xl font-medium pts showcase-text">
+            <h1>Start building with our APIs for absolutely free.</h1>
+            <Mailform class="mt-10"/>  
+            <p class="mt-3 text-gray-500 pts text-base ml-6 ">Have any questions? <router-link class="underline" to="/contact">Contact us</router-link></p>
         </div>
 
-        <div class="flex items-around justify-between text-white w-9/12 mx-auto pt-10 public-sans">
-            <div class="w-5/12">
+          <div class="lg:w-full md:w-6/12 sm:w-9/12 w-11/12 mx-auto" style="z-index:9;">
+            <img class="mx-auto lg:-mr-6 -mr-2" src="./assets/home/desktop/illustration-phone-mockup.svg" alt="phone mockup">
+        </div>
+    </section>
+
+    <!--selected companies-->
+    <section class="w-full generic-bg py-20 mt-8 relative">
+        <div class="absolute -top-0 left-0 overflow-hidden z-indexer">
+             <img class="relative md:-top-96 -top-72 md:-left-96" src="./assets/shared/desktop/bg-pattern-circle.svg">
+        </div>
+
+        <div class="flex items-around lg:flex-row flex-col-reverse justify-between text-white xl:w-9/12 w-11/12 mx-auto pt-10 public-sans">
+            <div class="lg:w-5/12 md:w-7/12 w-10/12 lg:mx-0 mx-auto lg:text-left text-center lg:pt-0 pt-16">
                 <h2 class="text-4xl">Who we work with</h2>
-                <p class="my-8 opacity-80 public-sans">
+                <p class="my-6 opacity-80 public-sans">
                     Today, millions of people around the world have successfully connected
                     their accounts to apps they love using our API. We provide developers
                     with the tools they need to create easy and accessible experiences
@@ -51,15 +54,15 @@
 
     <!---easy to implent--->
     <section class="body-bg pt-20 w-full">
-        <div class="w-9/12 mx-auto flex justify-between items-center mb-10">
+        <div class="lg:w-9/12 w-11/12 mx-auto lg:flex-row flex-col flex justify-between items-center mb-10">
 
-            <div class="w-full">
+            <div class="lg:w-full md:w-6/12 sm:w-9/12 w-11/12 mx-auto">
                 <img src="./assets/home/desktop/illustration-easy-to-implement.svg" alt="easy to implement">
             </div>
 
             <div>
-                <h1 class="text-3xl font-medium showcase-text ">Easy to implement</h1>
-                 <p class="text-sm light-text w-9/12 font-semibold public-sans mt-2">
+                <h1 class="text-3xl font-medium showcase-text lg:text-left text-center">Easy to implement</h1>
+                 <p class="text-sm light-text lg:w-9/12 lg:text-left text-center w-full font-semibold public-sans mt-2">
                     Our API comes with just a few lines of code. You’ll be up and running in
                     no time. We built our documentation page to integrate payments functionality
                     with ease.
@@ -69,19 +72,19 @@
         </div>
 
 
-        <div class="relative pb-40">
-            <div class="w-9/12 mx-auto relative flex justify-between items-center pt-16">
+        <div class="relative lg:pb-40 pb-20">
+            <div class="lg:w-9/12 mx-auto relative lg:flex-row flex-col-reverse flex justify-between items-center pt-16">
 
                 <div>
-                    <h1 class="text-3xl font-medium showcase-text">Simple UI & UX</h1>
-                    <p class="text-sm light-text w-11/12 font-semibold public-sans mt-2">
+                    <h1 class="text-3xl font-medium showcase-text lg:text-left text-center">Simple UI & UX</h1>
+                    <p class="text-sm light-text w-11/12 font-semibold public-sans mt-2 lg:text-left text-center">
                         Our pre-built form is easy to integrate in your app or website’s checkout
                         flow and designed to optimize conversion.
                     </p>
                 </div>
 
 
-                <div class="w-full simple-ui">
+                <div class="lg:w-full md:w-6/12 sm:w-9/12 w-11/12 mx-auto simple-ui">
                     <img src="./assets/home/desktop/illustration-simple-ui.svg" alt="phone mockup">
                 </div>
 
@@ -94,7 +97,7 @@
     </section>
     
     <section class="body-bg">
-         <div class="flex justify-between gap-10 items-center w-9/12 py-20 mx-auto">
+         <div class="flex justify-between md:flex-row flex-col gap-10 items-center xl:w-9/12 w-11/12 py-20 mx-auto">
             <div class="w-full">
                 <img class="mx-auto" src="./assets/home/desktop/icon-personal-finances.svg" alt="finances icon">
                 <h2 class="text-xl font-medium pt-4 showcase-text text-center ">Personal Finances</h2>
@@ -124,9 +127,9 @@
         </div>
 
 
-         <div class="flex justify-between items-center w-9/12 py-24 mx-auto">
-            <h1 class="text-3xl font-medium showcase-text">Ready to start?</h1>
-            <div class="w-6/12">
+         <div class="flex sm:flex-row flex-col justify-between items-center xl:w-9/12 w-11/12 py-16 mx-auto">
+            <h1 class="sm:text-3xl text-4xl font-medium showcase-text sm:pb-0 pb-6">Ready to start?</h1>
+            <div class="sm:w-6/12 w-full">
                 <Mailform/>
             </div>
          </div>
