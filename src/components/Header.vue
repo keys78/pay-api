@@ -26,6 +26,13 @@
         </section>
 
         <div v-if="showSideBar" class="anim w-full pt-20 p-4 fixed h-screen top-0 sidebarStyle text-center" style="z-index: 99999999999;">
+            <div class="absolute top-0 right-0 overflow-hidden" style="z-index:-9;">
+                <img class="relative -right-40" src="../assets/shared/desktop/bg-pattern-circle.svg">
+            </div>
+
+            <div class="absolute bottom-0 left-0 overflow-hidden" style="z-index:-9;">
+                <img class="relative -left-40" src="../assets/shared/desktop/bg-pattern-circle.svg">
+            </div>
 
             <div @click="toggleBar" style="z-index: 9999;" class="absolute top-8 right-7">
                 <h1 v-if="showSideBar"><i class="text-3xl text-red-400 hover:text-red-300 font-thin fas fa-times"></i></h1>
